@@ -1,4 +1,10 @@
-﻿using System.Security.Cryptography;
+﻿
+using System.Data;
+using System.Data.SqlTypes;
+using System.Reflection;
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Xml;
 
@@ -10,223 +16,183 @@ namespace firstStep
 
         {
             #region Question 1
-            //string title = "clean code";
-            //string upperTitle = title;
 
-            //title.ToUpper();
-            //Console.WriteLine(title);
-            //Console.WriteLine(upperTitle);
+            //double[] price = { 25.5, 40.0, 33.75 };
+
+            //Console.WriteLine(price[1]);
             #endregion
 
             #region Question 2
 
-            //string name1 = "clean code";
-            //string name2 = "clean code";
-            //Console.WriteLine(object.ReferenceEquals(name1,name2));
+            //int[,] shelfCopies = { { 3,5}, {1,4 } };
 
+            //Console.WriteLine(shelfCopies[1,0]);
 
 
             #endregion
 
             #region Question 3
 
-            //StringBuilder sb = new StringBuilder("BookList");
-            //sb.AppendLine();
-            //sb.Append("Updated");
+            //static void WelcomeMessage()
+            //{
+            //    Console.WriteLine("Welcome to the Library!");
+            //}
 
-            //Console.WriteLine(sb);
-
+            //WelcomeMessage();
 
             #endregion
 
             #region Question 4
 
-            //StringBuilder sb = new StringBuilder("BookList");
-            //sb.Replace("BookList", "Library");
-            //Console.WriteLine(sb);
+            //static void printBookTitle(string title)
+            //{
+            //    Console.WriteLine("Book title:" + title);
+            //}
 
+            //printBookTitle("cleanCode");
             #endregion
 
             #region Question 5
 
-            //string title = "Clean Code";
-            //int pages = 464;
-
-            //Console.WriteLine("Book:"+ title+ "Pages:"+ pages);
-
-
+            //static void AddBounsPages(int pages)
+            //{
+            //    pages += 50;
+            //    Console.WriteLine(pages);
+            //}
+            //int pages = 400;
+            //AddBounsPages(pages);
+            //Console.WriteLine(pages);
+            ////  Because passing by vlaue
             #endregion
 
             #region Question 6
 
-            //string title = "Clean Code";
-            //int pages = 464;
+            //static void ApplyDiscount(double[] prices)
+            //{
+            //    prices[0] -= 5;
 
-            //Console.WriteLine($"Book: {title}" +"\n"+ "pages: " + pages);
+            //}
 
+            //double[] prices = { 25.5, 40.0 };
+            //ApplyDiscount(prices);
+            //Console.WriteLine(prices[0]);
 
+            //// this is it passing by refrence because []
             #endregion
 
             #region Question 7
 
-            //string title = "Clean Code";
-            //int pages = 464;
+            //static void AddBounsPages(ref int pages)
+            //{
+            //    pages += 50;
 
-            //string result = string.Format("Book: {0}, Pages: {1}", title, pages);
-            //Console.WriteLine(result);
-
+            //}
+            //int pages = 400;
+            //AddBounsPages(ref pages);
+            //Console.WriteLine(pages);
+            //// Because passing by ref
             #endregion
 
-            #region Question 8
+            #region Question 8 
 
-            //int pages = 464;
-            //if (pages > 300)
+            //static void RepalceArray(ref double[] prices)
             //{
-            //    Console.WriteLine("LongBook");
+
+            //    prices = new double[] { 10.0, 12.5, 15.0 };
+
             //}
-            //else { Console.WriteLine("shortBook"); }
+            //double[] prices = { 1.0, 2.0 };
+
+            //RepalceArray(ref prices);
+
+            //Console.WriteLine(prices.Length);
+
+
+
+
 
 
             #endregion
 
             #region Question 9
 
-            //int pages = 464;
-            //bool isAvailable = true;
-            //if (pages > 300 && isAvailable == true)
+
+            //static bool TryGetPrice(string title, out double price)
             //{
-            //    Console.WriteLine("You can borrow this book");
+
+            //    price = 25.5;
+            //    title = "Clean Code";
+
+            //    if (title == "Clean Code")
+            //    {
+            //        price = 25.5;
+            //        return true;
+            //    }
+            //    else
+            //    {
+            //        price = 0;
+            //        return false;
+            //    }
+
             //}
+
+            //string myTitle = "Clean Code";
+            //double myPrice;
+
+            //bool isFound = TryGetPrice(myTitle, out myPrice);
+            //Console.WriteLine(myPrice);
+
 
             #endregion
 
             #region Question 10
 
-            //string title = "Refactoring";
-            //switch (title)
+            //static void PrintBookInfo(string title, int pages = 300)
             //{
-            //    case "Clean code":
-            //        Console.WriteLine("Great choise");
-            //        break;
-
-            //    case "Refactoring":
-            //        Console.WriteLine("Nice pick");
-            //        break;
-
-            //    default:
-            //        Console.WriteLine("Never heard of it");
-            //        break;
-
-
+            //    Console.WriteLine($"title: {title}, Pages: {pages}");
             //}
+
+            //PrintBookInfo("pages");
+            //PrintBookInfo("title", 301);
 
             #endregion
 
             #region Question 11
 
-            //int pages = 464;
+            //static void PrintBookInfo(string title, int pages = 300)
+            //{
+            //    Console.WriteLine(title + pages);
+            //}
 
-            //string result = (pages > 300 ? "LongBook" : "shortBook");
-            //Console.WriteLine(result);
+
+            //PrintBookInfo(pages: 301 , title: "pages");
+
             #endregion
 
             #region Question 12
 
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-            //for (int i = 0; i < books.Length; i++)
+            //static void PrintAllTitles(params string[] titles)
             //{
 
-            //    Console.WriteLine((i + 1) + "." + books[i]);
-            //}
-
-            #endregion
-
-            #region Question 13
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-
-            //int i = 0;
-            //while (i < books.Length)
-            //{
-
-            //    Console.WriteLine(books[i]);
-            //    i++;
-            //}
-
-            #endregion
-
-            #region Question 14
-
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-            //int i = 0;
-
-            //do
-            //{
-            //    Console.WriteLine(books[i]);
-            //    i++;
-            //} while (i < books.Length);
-
-            #endregion
-
-            #region Question 15
-
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-            //foreach (string book in books)
-            //{
-            //    Console.WriteLine(book);
-            //}
-
-            #endregion
-
-            #region Question 16
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-            //foreach (string book in books)
-            //{
-            //    if (book == "Refactoring")
-            //        break;
-            //    Console.WriteLine(book);
-            //}
-
-
-
-            #endregion
-
-            #region Question 17
-
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-            //foreach (string book in books)
-            //{
-            //    if (book == "The Pragmatic Programmer")
-            //        continue;
-            //    Console.WriteLine(book);
-            //}
-
-
-            #endregion
-
-            #region Question 18
-
-            //string[] books = { "Clean Code", "The Pragmatic Programmer", "Refactoring" };
-
-           
-            //void printFirstBook(string[] books)
-            //{
-            //    if (books == null || books.Length == 0)
+            //    foreach (string title in titles)
             //    {
-            //        return;
+            //        Console.WriteLine(title);
             //    }
             //}
 
-            //Console.WriteLine(books[0]);
+            //PrintAllTitles("1", "2", "3", "4", "5");
+
             #endregion
+
 
         }
 
     }
 
-
 }
+
+
+
+
+
+
